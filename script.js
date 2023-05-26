@@ -8,6 +8,7 @@ document.querySelector(".busca").addEventListener("submit", async (event) => {
         loading("Loading...");
 
         const urlGeocoding = `http://api.openweathermap.org/geo/1.0/direct?q=${encodeURI(inputValue)}&appid=95b9027fe9d1f6c19c6b21c7a2d3f521`;
+        
         const latLon = await fetch(urlGeocoding);
         const jsonGeo = await latLon.json();
 
@@ -18,8 +19,8 @@ document.querySelector(".busca").addEventListener("submit", async (event) => {
             const url = `https://api.openweathermap.org/data/2.5/weather?lat=${encodeURI(lat)}&lon=${encodeURI(lon)}&appid=95b9027fe9d1f6c19c6b21c7a2d3f521&units=metric&lang=pt_br`;
             const response = await fetch(url);
             const json = await response.json();
-            //console.log(json);
-            //console.log(jsonGeo);
+            console.log(json);
+            console.log(jsonGeo);
 
             showInfo({
                 name: json.name,
