@@ -19,8 +19,15 @@ document.querySelector(".busca").addEventListener("submit", async (event) => {
             const url = `https://api.openweathermap.org/data/2.5/weather?lat=${encodeURI(lat)}&lon=${encodeURI(lon)}&appid=95b9027fe9d1f6c19c6b21c7a2d3f521&units=metric&lang=pt_br`;
             const response = await fetch(url);
             const json = await response.json();
-            console.log(json);
-            console.log(jsonGeo);
+            //console.log(json);
+            //console.log(jsonGeo);
+
+            /* API bugada que faz a geocodificação e retorna as informações necessárias
+            const url2 = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(inputValue)}&appid=95b9027fe9d1f6c19c6b21c7a2d3f521&units=metric&lang=pt_br`;
+            const response2 = await fetch(url2);
+            const json2 = await response2.json();
+            console.log(json2);
+            */
 
             showInfo({
                 name: json.name,
