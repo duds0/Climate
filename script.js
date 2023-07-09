@@ -52,7 +52,7 @@ document.querySelector(".busca").addEventListener("submit", async (event) => {
         clearInfo();
     }
     const endTime = Date.now();
-    console.log(`O tempo completo da aplicação foi de: ${endTime-startTime}ms`);
+    console.log(`O tempo completo da aplicação foi de: ${endTime - startTime}ms`);
 });
 
 function showInfo(json) {
