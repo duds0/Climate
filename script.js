@@ -10,7 +10,11 @@ document.querySelector(".busca").addEventListener("submit", async (event) => {
         loading("Loading...");
 
         const urlGeocoding = `http://api.openweathermap.org/geo/1.0/direct?q=${encodeURI(inputValue)}&appid=95b9027fe9d1f6c19c6b21c7a2d3f521`;
-        const latLon = await fetch(urlGeocoding);
+        const latLon = await fetch(urlGeocoding, {
+            headers: {
+                "Access-Control-Allow-Origin": "*"
+            }
+        });
         const jsonGeo = await latLon.json();
         console.log(jsonGeo);
 
@@ -19,7 +23,11 @@ document.querySelector(".busca").addEventListener("submit", async (event) => {
             const lon = await jsonGeo[0].lon;
 
             const url = `https://api.openweathermap.org/data/2.5/weather?lat=${encodeURI(lat)}&lon=${encodeURI(lon)}&appid=95b9027fe9d1f6c19c6b21c7a2d3f521&units=metric&lang=pt_br`;
-            const response = await fetch(url);
+            const response = await fetch(url, {
+                headers: {
+                    "Access-Control-Allow-Origin": "*"
+                }
+            });
             const json = await response.json();
             //console.log(json);
             //console.log(jsonGeo);
