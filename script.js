@@ -9,7 +9,7 @@ document.querySelector(".busca").addEventListener("submit", async (event) => {
         clearInfo();
         loading("Loading...");
 
-        const urlGeocoding = `http://api.openweathermap.org/geo/1.0/direct?q=${encodeURI(inputValue)}&appid=95b9027fe9d1f6c19c6b21c7a2d3f521`;
+        const urlGeocoding = `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURI(inputValue)}&appid=95b9027fe9d1f6c19c6b21c7a2d3f521`;
         const latLon = await fetch(urlGeocoding);
         const jsonGeo = await latLon.json();
         console.log(jsonGeo);
